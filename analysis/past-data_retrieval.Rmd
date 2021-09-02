@@ -35,6 +35,10 @@ We used the ERA5-land reanalysis dataset <https://cds.climate.copernicus.eu/cdsa
 
 ### Data retrieval
 
+```{r}
+options(warn = -1)
+```
+
 ```{python eval=FALSE, include=FALSE, echo=TRUE}
 
 import cdsapi

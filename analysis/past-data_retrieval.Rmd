@@ -37,6 +37,7 @@ We used the ERA5-land reanalysis dataset <https://cds.climate.copernicus.eu/cdsa
 
 ```{r}
 options(warn = -1)
+
 ```
 
 ```{python eval=FALSE, include=FALSE, echo=TRUE}
@@ -142,7 +143,7 @@ for station in COORDS:
 
 ### Import .csv files with R and then wrangle
 
-```{r echo=TRUE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(lubridate)
 library(here)
@@ -200,7 +201,7 @@ metdata_2017_weekly <- metdata_2017_daily %>%
 
 #### Temperature
 
-```{r echo=TRUE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(ggplot2)
 
 (
@@ -218,7 +219,7 @@ plot_temp <- metdata_2017_weekly %>%
 
 #### Dewpoint
 
-```{r echo=TRUE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 (
 plot_temp <- metdata_2017_weekly %>%
@@ -230,7 +231,7 @@ plot_temp <- metdata_2017_weekly %>%
 
 #### Total precipitation
 
-```{r echo=TRUE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 (
 plot_temp <- metdata_2017_weekly %>%

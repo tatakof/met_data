@@ -1,7 +1,7 @@
-name: "met_data"
+name: met_data
 output_dir: ../docs
 navbar:
-  title: "met_data"
+  title: met_data
   left:
   - text: Home
     href: index.html
@@ -11,6 +11,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/franfram/met_data
 output:
   workflowr::wflow_html:
     toc: yes

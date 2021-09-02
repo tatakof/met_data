@@ -493,16 +493,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree9217572c02f60726e5739dc800a922be30ed8b23targetblank9217572a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/9217572c02f60726e5739dc800a922be30ed8b23" target="_blank">9217572</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatreedbed7f741b59e8227bfac88bfc1f666e58203959targetblankdbed7f7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/dbed7f741b59e8227bfac88bfc1f666e58203959" target="_blank">dbed7f7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree9217572c02f60726e5739dc800a922be30ed8b23targetblank9217572a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatreedbed7f741b59e8227bfac88bfc1f666e58203959targetblankdbed7f7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/9217572c02f60726e5739dc800a922be30ed8b23" target="_blank">9217572</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/dbed7f741b59e8227bfac88bfc1f666e58203959" target="_blank">dbed7f7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -549,6 +549,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/franfram/met_data/blob/dbed7f741b59e8227bfac88bfc1f666e58203959/analysis/past-data_retrieval.Rmd" target="_blank">dbed7f7</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-02
+</td>
+<td>
+wflow_publish(c("analysis/past-data_retrieval.Rmd", "analysis/about.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/franfram/met_data/364ad61d38df7ef33a16bef76a2a03e029569c16/docs/past-data_retrieval.html" target="_blank">364ad61</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-02
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -660,24 +694,12 @@ for station in COORDS:
 </div>
 <div id="import-.csv-files-with-r-and-then-wrangle" class="section level3">
 <h3>Import .csv files with R and then wrangle</h3>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-✓ tibble  3.1.1     ✓ dplyr   1.0.5
-✓ tidyr   1.1.3     ✓ stringr 1.4.0
-✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(lubridate)</code></pre>
-<pre><code>
-Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
+library(here)
 
-    date, intersect, setdiff, union</code></pre>
-<pre class="r"><code>library(here)</code></pre>
-<pre><code>here() starts at /home/pimpumpam/met_data</code></pre>
-<pre class="r"><code>list_csv &lt;- dir(path = here(&quot;data&quot;), pattern = &quot;*.csv&quot;) 
+
+list_csv &lt;- dir(path = here(&quot;data&quot;), pattern = &quot;*.csv&quot;) 
 path &lt;- here(&quot;data&quot;, list_csv)
 
 metdata_2017_raw &lt;- path %&gt;% 
@@ -708,9 +730,9 @@ metdata_2017_daily &lt;- metdata_2017_raw %&gt;%
     &#39;d2m_dmean&#39; = mean(d2m)
   ) %&gt;% 
   select(&#39;station&#39;, &#39;lat&#39;, &#39;lon&#39;, &#39;Date&#39;, &#39;t2m_dmean&#39;, &#39;tp_dmean&#39;, &#39;d2m_dmean&#39;) %&gt;% 
-  ungroup()</code></pre>
-<pre><code>`summarise()` has grouped output by &#39;station&#39;, &#39;lat&#39;, &#39;lon&#39;, &#39;Date&#39;. You can override using the `.groups` argument.</code></pre>
-<pre class="r"><code># Compute weekly means from daily means    
+  ungroup()
+
+# Compute weekly means from daily means    
 metdata_2017_weekly &lt;- metdata_2017_daily %&gt;% 
   group_by(station, week = week(Date)) %&gt;% 
   mutate(
@@ -755,6 +777,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/franfram/met_data/blob/364ad61d38df7ef33a16bef76a2a03e029569c16/docs/figure/past-data_retrieval.Rmd/unnamed-chunk-5-1.png" target="_blank">364ad61</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-02
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/franfram/met_data/blob/e1564f41e3708542f66daee372959cee0d352611/docs/figure/past-data_retrieval.Rmd/unnamed-chunk-5-1.png" target="_blank">e1564f4</a>
@@ -804,6 +837,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/franfram/met_data/blob/364ad61d38df7ef33a16bef76a2a03e029569c16/docs/figure/past-data_retrieval.Rmd/unnamed-chunk-6-1.png" target="_blank">364ad61</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-02
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/franfram/met_data/blob/e1564f41e3708542f66daee372959cee0d352611/docs/figure/past-data_retrieval.Rmd/unnamed-chunk-6-1.png" target="_blank">e1564f4</a>
 </td>
 <td>
@@ -827,6 +871,43 @@ plot_temp &lt;- metdata_2017_weekly %&gt;%
   labs(y = &quot;ECMWF Total Precipitation&quot;)
 )</code></pre>
 <p><img src="figure/past-data_retrieval.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/franfram/met_data/blob/364ad61d38df7ef33a16bef76a2a03e029569c16/docs/figure/past-data_retrieval.Rmd/unnamed-chunk-7-1.png" target="_blank">364ad61</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

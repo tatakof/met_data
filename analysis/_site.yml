@@ -19,7 +19,7 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: spacelab
+    theme: sandstone
     highlight: textmate
     code_folding: hide
     df_print: paged

@@ -1,7 +1,7 @@
 name: met_data
 output_dir: ../docs
 navbar:
-  title: met_data
+  title: Meteorological Data
   left:
   - text: Home
     href: index.html

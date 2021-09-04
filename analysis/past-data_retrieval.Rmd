@@ -8,7 +8,7 @@ editor_options:
 ---
 
 ## 
- 
+  
 This script downloads, wrangles and plots data from the European Centre for Medium-Range Weather Forecasts (ECMWF) using Python's CDS API <https://pypi.org/project/cdsapi/>.
 
 Install the CDS API and configure its key <https://cds.climate.copernicus.eu/api-how-to>

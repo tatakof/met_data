@@ -1,4 +1,4 @@
-name: met_data
+name: ECMWF data
 output_dir: ../docs
 navbar:
   title: Meteorological Data

@@ -1,0 +1,17 @@
+---
+title: "Forecast data retrieval from ECMWF"
+author: "franfram"
+date: "2021-09-04"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Work in progress
+
+```{r}
+
+```
+

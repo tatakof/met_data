@@ -5,8 +5,10 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: ECMWF Data
+  - text: ECMWF Past Data
     href: past-data_retrieval.html
+  - text: ECMWF Forecast Data
+    href: forecast-data_retrieval.html
   - text: About
     href: about.html
   - text: License

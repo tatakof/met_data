@@ -21,7 +21,7 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: sandstone
+    theme: cosmo
     highlight: textmate
     code_folding: hide
     df_print: paged

@@ -7,187 +7,20 @@ editor_options:
   chunk_output_type: console
 ---
 
- 
-    
-<br> 
-
- representing averages over a model grid box and model time step.
+<br>
 
 
-
-Data retrieval
-
-
-￼Hide
-import cdsapi
-from pyprojroot import here 
- 
-if __name__ == '__main__':
- 
-    c = cdsapi.Client()
- 
-    COORDS = {
-            "GENERAL_PICO":[-35.696,    -63.758], 
-            "MINISTRO_PISTARINI":[-34.822, -58.536],
-            "MARCOS_JUAREZ":[-32.684, -62.158],
-            "MAR DEL PLATA AERO":[-37.933, -57.583],
-            "PILAR OBSERVATORIO":[-31.667, -63.883],
-            "JUNIN":[-34.546, -60.931],
-            "ROSARIO": [-32.904, -60.785],
-            "GENERAL_PICO_2":[-35.697,  -63.759] 
-            }
-            
-    VARIABLES = [
-            '2m_temperature', representing averages over a model grid box and model time step.
-
-
-
-Data retrieval
-
-
-￼Hide
-import cdsapi
-from pyprojroot import here 
- 
-if __name__ == '__main__':
- 
-    c = cdsapi.Client()
- 
-    COORDS = {
-            "GENERAL_PICO":[-35.696,    -63.758], 
-            "MINISTRO_PISTARINI":[-34.822, -58.536],
-            "MARCOS_JUAREZ":[-32.684, -62.158],
-            "MAR DEL PLATA AERO":[-37.933, -57.583],
-            "PILAR OBSERVATORIO":[-31.667, -63.883],
-            "JUNIN":[-34.546, -60.931],
-            "ROSARIO": [-32.904, -60.785],
-            "GENERAL_PICO_2":[-35.697,  -63.759] 
-            }
-            
-    VARIABLES = [
-            '2m_temperature', representing averages over a model grid box and model time step.
-
-
-
-Data retrieval
-
-
-￼Hide
-import cdsapi
-from pyprojroot import here 
- 
-if __name__ == '__main__':
- 
-    c = cdsapi.Client()
- 
-    COORDS = {
-            "GENERAL_PICO":[-35.696,    -63.758], 
-            "MINISTRO_PISTARINI":[-34.822, -58.536],
-            "MARCOS_JUAREZ":[-32.684, -62.158],
-            "MAR DEL PLATA AERO":[-37.933, -57.583],
-            "PILAR OBSERVATORIO":[-31.667, -63.883],
-            "JUNIN":[-34.546, -60.931],
-            "ROSARIO": [-32.904, -60.785],
-            "GENERAL_PICO_2":[-35.697,  -63.759] 
-            }
-            
-    VARIABLES = [
-            '2m_temperature', representing averages over a model grid box and model time step.
-
-
-
-Data retrieval
-
-
-￼Hide
-import cdsapi
-from pyprojroot import here 
- 
-if __name__ == '__main__':
- 
-    c = cdsapi.Client()
- 
-    COORDS = {
-            "GENERAL_PICO":[-35.696,    -63.758], 
-            "MINISTRO_PISTARINI":[-34.822, -58.536],
-            "MARCOS_JUAREZ":[-32.684, -62.158],
-            "MAR DEL PLATA AERO":[-37.933, -57.583],
-            "PILAR OBSERVATORIO":[-31.667, -63.883],
-            "JUNIN":[-34.546, -60.931],
-            "ROSARIO": [-32.904, -60.785],
-            "GENERAL_PICO_2":[-35.697,  -63.759] 
-            }
-            
-    VARIABLES = [
-            '2m_temperature', representing averages over a model grid box and model time step.
-
-
-
-Data retrieval
-
-
-￼Hide
-import cdsapi
-from pyprojroot import here 
- 
-if __name__ == '__main__':
- 
-    c = cdsapi.Client()
- 
-    COORDS = {
-            "GENERAL_PICO":[-35.696,    -63.758], 
-            "MINISTRO_PISTARINI":[-34.822, -58.536],
-            "MARCOS_JUAREZ":[-32.684, -62.158],
-            "MAR DEL PLATA AERO":[-37.933, -57.583],
-            "PILAR OBSERVATORIO":[-31.667, -63.883],
-            "JUNIN":[-34.546, -60.931],
-            "ROSARIO": [-32.904, -60.785],
-            "GENERAL_PICO_2":[-35.697,  -63.759] 
-            }
-            
-    VARIABLES = [
-            '2m_temperature', representing averages over a model grid box and model time step.
-
-
-
-Data retrieval
-
-
-￼Hide
-import cdsapi
-from pyprojroot import here 
- 
-if __name__ == '__main__':
- 
-    c = cdsapi.Client()
- 
-    COORDS = {
-            "GENERAL_PICO":[-35.696,    -63.758], 
-            "MINISTRO_PISTARINI":[-34.822, -58.536],
-            "MARCOS_JUAREZ":[-32.684, -62.158],
-            "MAR DEL PLATA AERO":[-37.933, -57.583],
-            "PILAR OBSERVATORIO":[-31.667, -63.883],
-            "JUNIN":[-34.546, -60.931],
-            "ROSARIO": [-32.904, -60.785],
-            "GENERAL_PICO_2":[-35.697,  -63.759] 
-            }
-            
-    VARIABLES = [
-            '2m_temperature',
 This script downloads, wrangles and plots data from the European Centre for Medium-Range Weather Forecasts (ECMWF) using Python's CDS API <https://pypi.org/project/cdsapi/>.
 
-    
-<br> 
+<br>
 
 Install the CDS API and configure its key <https://cds.climate.copernicus.eu/api-how-to>
-    
-<br> 
 
+<br>
 
 We used the ERA5-land reanalysis dataset <https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview>
-    
-<br> 
 
+<br>
 
 [Dataset details:]{.ul}
 
@@ -205,16 +38,13 @@ We used the ERA5-land reanalysis dataset <https://cds.climate.copernicus.eu/cdsa
 
     -   2m dewpoint temperature (K): Temperature to which the air, at 2 metres above the surface of the Earth, would have to be cooled for saturation to occur.It is a measure of the humidity of the air. Combined with temperature and pressure, it can be used to calculate the relative humidity. 2m dew point temperature is calculated by interpolating between the lowest model level and the Earth's surface, taking account of the atmospheric conditions.
 
-    -   Total precipitation: Accumulated liquid and frozen water, including rain and snow, that falls to the Earth's surface. It is the sum of large-scale precipitation (that precipitation which is generated by large-scale weather patterns, such as troughs and cold fronts) and convective precipitation (generated by convection which occurs when air at lower levels in the atmosphere is warmer and less dense than the air above, so it rises). Precipitation variables do not include fog, dew or the precipitation that evaporates in the atmosphere before it lands at the surface of the Earth. This variable is accumulated from the beginning of the forecast time to the end of the forecast step. The units of precipitation are depth in metres. It is the depth the water would have if it were spread evenly over the grid box. Care should be taken when comparing model variables with observations, because observations are often local to a particular point in space and time, rather than representing averages over a model grid box and model time step.  
-    
-    
-<br> 
+    -   Total precipitation: Accumulated liquid and frozen water, including rain and snow, that falls to the Earth's surface. It is the sum of large-scale precipitation (that precipitation which is generated by large-scale weather patterns, such as troughs and cold fronts) and convective precipitation (generated by convection which occurs when air at lower levels in the atmosphere is warmer and less dense than the air above, so it rises). Precipitation variables do not include fog, dew or the precipitation that evaporates in the atmosphere before it lands at the surface of the Earth. This variable is accumulated from the beginning of the forecast time to the end of the forecast step. The units of precipitation are depth in metres. It is the depth the water would have if it were spread evenly over the grid box. Care should be taken when comparing model variables with observations, because observations are often local to a particular point in space and time, rather than representing averages over a model grid box and model time step.
 
-### Data retrieval  
-    
-<br> 
+<br>
 
+### Data retrieval
 
+<br>
 
 ```{r include=FALSE}
 options(warn = -1)
@@ -287,9 +117,8 @@ if __name__ == '__main__':
 
 
 ```
-    
-<br> 
 
+<br>
 
 ### Import grib data as N-D labeled arrays, then save as .csv
 
@@ -324,9 +153,8 @@ for station in COORDS:
 
 
 ```
-    
-<br> 
 
+<br>
 
 ### Import .csv files with R and then wrangle
 
@@ -348,7 +176,7 @@ metdata_2017_raw <- path %>%
     'Time' = format(valid_time, format = "%H:%M:%S"),
     'Day' = day(valid_time)
   ) %>% 
-  mutate( # Kelvin to C°
+  mutate( # Kelvin to °C
     't2m' = t2m - 273.15,
     'd2m' = d2m - 273.15
   ) %>% 
@@ -383,14 +211,12 @@ metdata_2017_weekly <- metdata_2017_daily %>%
 
 
 ```
-    
-<br> 
 
+<br>
 
 ### Plot
-    
-<br> 
 
+<br>
 
 #### Temperature
 
@@ -409,9 +235,8 @@ plot_temp <- metdata_2017_weekly %>%
 
 
 ```
-    
-<br> 
 
+<br>
 
 #### Dewpoint
 
@@ -425,8 +250,7 @@ plot_temp <- metdata_2017_weekly %>%
 )
 ```
 
-    
-<br> 
+<br>
 
 #### Total precipitation
 

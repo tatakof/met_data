@@ -35,6 +35,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
@@ -234,6 +235,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -364,6 +368,14 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">ECMWF</h1>
@@ -484,16 +496,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree2db903011bc0ebc5bd802acc2a477a13384509e1targetblank2db9030a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/2db903011bc0ebc5bd802acc2a477a13384509e1" target="_blank">2db9030</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree6c5a096454d3625ce6cebd7e8c82c0161b2028c4targetblank6c5a096a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/6c5a096454d3625ce6cebd7e8c82c0161b2028c4" target="_blank">6c5a096</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree2db903011bc0ebc5bd802acc2a477a13384509e1targetblank2db9030a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree6c5a096454d3625ce6cebd7e8c82c0161b2028c4targetblank6c5a096a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/2db903011bc0ebc5bd802acc2a477a13384509e1" target="_blank">2db9030</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/6c5a096454d3625ce6cebd7e8c82c0161b2028c4" target="_blank">6c5a096</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -506,9 +518,6 @@ Ignored files:
 Untracked files:
     Untracked:  install.R
     Untracked:  runtime.txt
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -547,6 +556,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/franfram/met_data/blob/6c5a096454d3625ce6cebd7e8c82c0161b2028c4/analysis/past-data_retrieval.Rmd" target="_blank">6c5a096</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+wflow_publish(c("analysis/_site.yml", "analysis/past-data_retrieval.Rmd"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/franfram/met_data/ecb6eb54a145f888740b83b36b40a474c2be229d/docs/past-data_retrieval.html" target="_blank">ecb6eb5</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -810,115 +853,6 @@ wflow_publish(c("analysis/past-data_retrieval.Rmd", "analysis/_site.yml"))
 </div>
 </div>
 <p><br></p>
-<p>representing averages over a model grid box and model time step.</p>
-<p>Data retrieval</p>
-<p>￼Hide import cdsapi from pyprojroot import here</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
-<pre><code>c = cdsapi.Client()
-
-COORDS = {
-        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
-        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
-        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
-        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
-        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
-        &quot;JUNIN&quot;:[-34.546, -60.931],
-        &quot;ROSARIO&quot;: [-32.904, -60.785],
-        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
-        }
-        
-VARIABLES = [
-        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
-<p>Data retrieval</p>
-<p>￼Hide import cdsapi from pyprojroot import here</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
-<pre><code>c = cdsapi.Client()
-
-COORDS = {
-        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
-        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
-        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
-        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
-        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
-        &quot;JUNIN&quot;:[-34.546, -60.931],
-        &quot;ROSARIO&quot;: [-32.904, -60.785],
-        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
-        }
-        
-VARIABLES = [
-        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
-<p>Data retrieval</p>
-<p>￼Hide import cdsapi from pyprojroot import here</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
-<pre><code>c = cdsapi.Client()
-
-COORDS = {
-        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
-        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
-        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
-        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
-        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
-        &quot;JUNIN&quot;:[-34.546, -60.931],
-        &quot;ROSARIO&quot;: [-32.904, -60.785],
-        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
-        }
-        
-VARIABLES = [
-        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
-<p>Data retrieval</p>
-<p>￼Hide import cdsapi from pyprojroot import here</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
-<pre><code>c = cdsapi.Client()
-
-COORDS = {
-        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
-        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
-        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
-        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
-        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
-        &quot;JUNIN&quot;:[-34.546, -60.931],
-        &quot;ROSARIO&quot;: [-32.904, -60.785],
-        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
-        }
-        
-VARIABLES = [
-        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
-<p>Data retrieval</p>
-<p>￼Hide import cdsapi from pyprojroot import here</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
-<pre><code>c = cdsapi.Client()
-
-COORDS = {
-        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
-        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
-        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
-        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
-        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
-        &quot;JUNIN&quot;:[-34.546, -60.931],
-        &quot;ROSARIO&quot;: [-32.904, -60.785],
-        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
-        }
-        
-VARIABLES = [
-        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
-<p>Data retrieval</p>
-<p>￼Hide import cdsapi from pyprojroot import here</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
-<pre><code>c = cdsapi.Client()
-
-COORDS = {
-        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
-        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
-        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
-        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
-        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
-        &quot;JUNIN&quot;:[-34.546, -60.931],
-        &quot;ROSARIO&quot;: [-32.904, -60.785],
-        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
-        }
-        
-VARIABLES = [
-        &#39;2m_temperature&#39;,</code></pre>
 <p>This script downloads, wrangles and plots data from the European Centre for Medium-Range Weather Forecasts (ECMWF) using Python’s CDS API <a href="https://pypi.org/project/cdsapi/" class="uri">https://pypi.org/project/cdsapi/</a>.</p>
 <p><br></p>
 <p>Install the CDS API and configure its key <a href="https://cds.climate.copernicus.eu/api-how-to" class="uri">https://cds.climate.copernicus.eu/api-how-to</a></p>
@@ -1052,7 +986,7 @@ metdata_2017_raw &lt;- path %&gt;%
     &#39;Time&#39; = format(valid_time, format = &quot;%H:%M:%S&quot;),
     &#39;Day&#39; = day(valid_time)
   ) %&gt;% 
-  mutate( # Kelvin to C°
+  mutate( # Kelvin to °C
     &#39;t2m&#39; = t2m - 273.15,
     &#39;d2m&#39; = d2m - 273.15
   ) %&gt;% 
@@ -1356,6 +1290,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {

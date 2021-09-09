@@ -15,7 +15,7 @@
 
 <title>ECMWF</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -315,12 +315,12 @@ div.tocify {
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row">
-<div class="col-sm-12 col-md-4 col-lg-3">
+<div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -356,7 +356,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/franfram/met_data">
-    <span class="fas fa-github"></span>
+    <span class="fa fa-github"></span>
      
     Source code
   </a>
@@ -405,7 +405,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-04
+<strong>Last updated:</strong> 2021-09-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -496,16 +496,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatreeb33157399181f536f590566e5d2d8295c81c7dadtargetblankb331573a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/b33157399181f536f590566e5d2d8295c81c7dad" target="_blank">b331573</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree9f879632dfb7082a7eccbe36f0bd574047e20daatargetblank9f87963a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/9f879632dfb7082a7eccbe36f0bd574047e20daa" target="_blank">9f87963</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatreeb33157399181f536f590566e5d2d8295c81c7dadtargetblankb331573a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree9f879632dfb7082a7eccbe36f0bd574047e20daatargetblank9f87963a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/b33157399181f536f590566e5d2d8295c81c7dad" target="_blank">b331573</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/9f879632dfb7082a7eccbe36f0bd574047e20daa" target="_blank">9f87963</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -514,6 +514,10 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  install.R
+    Untracked:  runtime.txt
 
 </code></pre>
 <p>
@@ -552,6 +556,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/franfram/met_data/blob/9f879632dfb7082a7eccbe36f0bd574047e20daa/analysis/past-data_retrieval.Rmd" target="_blank">9f87963</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+wflow_publish(c("analysis/about.Rmd", "analysis/license.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/franfram/met_data/17654d1417518cc868cb306ee78dbd267cffa635/docs/past-data_retrieval.html" target="_blank">17654d1</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-04
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -763,11 +801,122 @@ wflow_publish(c("analysis/past-data_retrieval.Rmd", "analysis/_site.yml"))
 </div>
 </div>
 </div>
-<div id="section" class="section level2">
-<h2></h2>
+<p><br></p>
+<p>representing averages over a model grid box and model time step.</p>
+<p>Data retrieval</p>
+<p>￼Hide import cdsapi from pyprojroot import here</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+<pre><code>c = cdsapi.Client()
+
+COORDS = {
+        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+        &quot;JUNIN&quot;:[-34.546, -60.931],
+        &quot;ROSARIO&quot;: [-32.904, -60.785],
+        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+        }
+        
+VARIABLES = [
+        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
+<p>Data retrieval</p>
+<p>￼Hide import cdsapi from pyprojroot import here</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+<pre><code>c = cdsapi.Client()
+
+COORDS = {
+        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+        &quot;JUNIN&quot;:[-34.546, -60.931],
+        &quot;ROSARIO&quot;: [-32.904, -60.785],
+        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+        }
+        
+VARIABLES = [
+        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
+<p>Data retrieval</p>
+<p>￼Hide import cdsapi from pyprojroot import here</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+<pre><code>c = cdsapi.Client()
+
+COORDS = {
+        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+        &quot;JUNIN&quot;:[-34.546, -60.931],
+        &quot;ROSARIO&quot;: [-32.904, -60.785],
+        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+        }
+        
+VARIABLES = [
+        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
+<p>Data retrieval</p>
+<p>￼Hide import cdsapi from pyprojroot import here</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+<pre><code>c = cdsapi.Client()
+
+COORDS = {
+        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+        &quot;JUNIN&quot;:[-34.546, -60.931],
+        &quot;ROSARIO&quot;: [-32.904, -60.785],
+        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+        }
+        
+VARIABLES = [
+        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
+<p>Data retrieval</p>
+<p>￼Hide import cdsapi from pyprojroot import here</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+<pre><code>c = cdsapi.Client()
+
+COORDS = {
+        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+        &quot;JUNIN&quot;:[-34.546, -60.931],
+        &quot;ROSARIO&quot;: [-32.904, -60.785],
+        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+        }
+        
+VARIABLES = [
+        &#39;2m_temperature&#39;, representing averages over a model grid box and model time step.</code></pre>
+<p>Data retrieval</p>
+<p>￼Hide import cdsapi from pyprojroot import here</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’:</p>
+<pre><code>c = cdsapi.Client()
+
+COORDS = {
+        &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+        &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+        &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+        &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+        &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+        &quot;JUNIN&quot;:[-34.546, -60.931],
+        &quot;ROSARIO&quot;: [-32.904, -60.785],
+        &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+        }
+        
+VARIABLES = [
+        &#39;2m_temperature&#39;,</code></pre>
 <p>This script downloads, wrangles and plots data from the European Centre for Medium-Range Weather Forecasts (ECMWF) using Python’s CDS API <a href="https://pypi.org/project/cdsapi/" class="uri">https://pypi.org/project/cdsapi/</a>.</p>
+<p><br></p>
 <p>Install the CDS API and configure its key <a href="https://cds.climate.copernicus.eu/api-how-to" class="uri">https://cds.climate.copernicus.eu/api-how-to</a></p>
+<p><br></p>
 <p>We used the ERA5-land reanalysis dataset <a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview" class="uri">https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview</a></p>
+<p><br></p>
 <p><u>Dataset details:</u></p>
 <ul>
 <li><p>File format: GRIB.</p></li>
@@ -781,9 +930,70 @@ wflow_publish(c("analysis/past-data_retrieval.Rmd", "analysis/_site.yml"))
 <li><p>Total precipitation: Accumulated liquid and frozen water, including rain and snow, that falls to the Earth’s surface. It is the sum of large-scale precipitation (that precipitation which is generated by large-scale weather patterns, such as troughs and cold fronts) and convective precipitation (generated by convection which occurs when air at lower levels in the atmosphere is warmer and less dense than the air above, so it rises). Precipitation variables do not include fog, dew or the precipitation that evaporates in the atmosphere before it lands at the surface of the Earth. This variable is accumulated from the beginning of the forecast time to the end of the forecast step. The units of precipitation are depth in metres. It is the depth the water would have if it were spread evenly over the grid box. Care should be taken when comparing model variables with observations, because observations are often local to a particular point in space and time, rather than representing averages over a model grid box and model time step.</p></li>
 </ul></li>
 </ul>
+<p><br></p>
 <div id="data-retrieval" class="section level3">
 <h3>Data retrieval</h3>
-<pre class="r"><code>options(warn = -1)</code></pre>
+<p><br></p>
+<pre class="python"><code>import cdsapi
+from pyprojroot import here 
+ 
+if __name__ == &#39;__main__&#39;:
+ 
+    c = cdsapi.Client()
+ 
+    COORDS = {
+            &quot;GENERAL_PICO&quot;:[-35.696,    -63.758], 
+            &quot;MINISTRO_PISTARINI&quot;:[-34.822, -58.536],
+            &quot;MARCOS_JUAREZ&quot;:[-32.684, -62.158],
+            &quot;MAR DEL PLATA AERO&quot;:[-37.933, -57.583],
+            &quot;PILAR OBSERVATORIO&quot;:[-31.667, -63.883],
+            &quot;JUNIN&quot;:[-34.546, -60.931],
+            &quot;ROSARIO&quot;: [-32.904, -60.785],
+            &quot;GENERAL_PICO_2&quot;:[-35.697,  -63.759] 
+            }
+            
+    VARIABLES = [
+            &#39;2m_temperature&#39;,
+            &#39;total_precipitation&#39;,
+            &#39;2m_dewpoint_temperature&#39;
+    ]
+ 
+ 
+    YEARS = &#39;2017&#39;
+ 
+    MONTHS = [
+      &#39;01&#39;,
+      &#39;02&#39;, 
+      &#39;03&#39;, 
+      &#39;04&#39;, 
+    ]
+    DAYS = [&#39;%02d&#39;%(mn) for mn in range(1,32)]
+ 
+
+    for station in COORDS: 
+      station_point_coord = COORDS[station]*2 # c.retrieve() requires an area to be specified (4 values: North, West, South, East). With this trick, we can specify lat lon values instead.
+      c.retrieve( # CDS API
+          &#39;reanalysis-era5-land&#39;, # Dataset
+          {
+              &#39;variable&#39;: VARIABLES,
+              &#39;format&#39;: &#39;grib&#39;,
+              &#39;time&#39;: [
+            &#39;00:00&#39;, &#39;01:00&#39;, &#39;02:00&#39;,
+            &#39;03:00&#39;, &#39;04:00&#39;, &#39;05:00&#39;,
+            &#39;06:00&#39;, &#39;07:00&#39;, &#39;08:00&#39;,
+            &#39;09:00&#39;, &#39;10:00&#39;, &#39;11:00&#39;,
+            &#39;12:00&#39;, &#39;13:00&#39;, &#39;14:00&#39;,
+            &#39;15:00&#39;, &#39;16:00&#39;, &#39;17:00&#39;,
+            &#39;18:00&#39;, &#39;19:00&#39;, &#39;20:00&#39;,
+            &#39;21:00&#39;, &#39;22:00&#39;, &#39;23:00&#39;,
+        ], 
+              &#39;day&#39;: DAYS,
+              &#39;month&#39;: MONTHS,
+              &#39;year&#39;: YEARS,
+              &#39;area&#39;: station_point_coord,
+              },
+          here(&#39;./data/&#39; + f&#39;metdata_era5_{station}.grib&#39;))          </code></pre>
+<p><br></p>
 </div>
 <div id="import-grib-data-as-n-d-labeled-arrays-then-save-as-.csv" class="section level3">
 <h3>Import grib data as N-D labeled arrays, then save as .csv</h3>
@@ -813,6 +1023,7 @@ for station in COORDS:
   metdata[&#39;station&#39;] = pd.Series([f&#39;{station}&#39; for x in range(len(metdata.index))])
   # save as csv
   metdata.to_csv(here(str(&#39;./data/&#39; + f&#39;metdata_era5_{station}.csv&#39;)))   </code></pre>
+<p><br></p>
 </div>
 <div id="import-.csv-files-with-r-and-then-wrangle" class="section level3">
 <h3>Import .csv files with R and then wrangle</h3>
@@ -863,9 +1074,11 @@ metdata_2017_weekly &lt;- metdata_2017_daily %&gt;%
     &#39;d2m_wmean&#39; = mean(d2m_dmean)
   ) %&gt;% 
   ungroup()</code></pre>
+<p><br></p>
 </div>
 <div id="plot" class="section level3">
 <h3>Plot</h3>
+<p><br></p>
 <div id="temperature" class="section level4">
 <h4>Temperature</h4>
 <pre class="r"><code>library(ggplot2)
@@ -925,6 +1138,7 @@ franfram
 </table>
 </div>
 </div>
+<p><br></p>
 </div>
 <div id="dewpoint" class="section level4">
 <h4>Dewpoint</h4>
@@ -983,6 +1197,7 @@ franfram
 </table>
 </div>
 </div>
+<p><br></p>
 </div>
 <div id="total-precipitation" class="section level4">
 <h4>Total precipitation</h4>
@@ -1038,7 +1253,7 @@ franfram
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.5 (2021-03-31)
+<pre><code>R version 4.1.1 (2021-08-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Linux Mint 20.1
 
@@ -1059,28 +1274,27 @@ attached base packages:
 
 other attached packages:
  [1] here_1.0.1       lubridate_1.7.10 forcats_0.5.1    stringr_1.4.0   
- [5] dplyr_1.0.5      purrr_0.3.4      readr_1.4.0      tidyr_1.1.3     
- [9] tibble_3.1.1     ggplot2_3.3.3    tidyverse_1.3.1  workflowr_1.6.2 
+ [5] dplyr_1.0.7      purrr_0.3.4      readr_2.0.1      tidyr_1.1.3     
+ [9] tibble_3.1.4     ggplot2_3.3.5    tidyverse_1.3.1  workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.6        lattice_0.20-41   png_0.1-7         assertthat_0.2.1 
- [5] rprojroot_2.0.2   digest_0.6.27     utf8_1.2.1        R6_2.5.0         
- [9] cellranger_1.1.0  backports_1.2.1   reprex_2.0.0      evaluate_0.14    
-[13] highr_0.9         httr_1.4.2        pillar_1.6.0      rlang_0.4.10     
-[17] readxl_1.3.1      rstudioapi_0.13   whisker_0.4       jquerylib_0.1.4  
-[21] Matrix_1.3-2      reticulate_1.20   rmarkdown_2.7     labeling_0.4.2   
-[25] munsell_0.5.0     broom_0.7.6       compiler_4.0.5    httpuv_1.6.0     
-[29] modelr_0.1.8      xfun_0.22         pkgconfig_2.0.3   htmltools_0.5.1.1
-[33] tidyselect_1.1.1  fansi_0.4.2       crayon_1.4.1      dbplyr_2.1.1     
-[37] withr_2.4.2       later_1.2.0       grid_4.0.5        jsonlite_1.7.2   
-[41] gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1         git2r_0.28.0     
-[45] magrittr_2.0.1    scales_1.1.1      cli_2.5.0         stringi_1.5.3    
-[49] farver_2.1.0      fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
-[53] bslib_0.2.4       ellipsis_0.3.2    generics_0.1.0    vctrs_0.3.8      
-[57] tools_4.0.5       glue_1.4.2        hms_1.0.0         yaml_2.2.1       
-[61] colorspace_2.0-0  rvest_1.0.0       knitr_1.33        haven_2.4.0      
-[65] sass_0.3.1       </code></pre>
-</div>
+ [1] Rcpp_1.0.7       lattice_0.20-44  png_0.1-7        assertthat_0.2.1
+ [5] rprojroot_2.0.2  digest_0.6.27    utf8_1.2.2       R6_2.5.1        
+ [9] cellranger_1.1.0 backports_1.2.1  reprex_2.0.1     evaluate_0.14   
+[13] highr_0.9        httr_1.4.2       pillar_1.6.2     rlang_0.4.11    
+[17] readxl_1.3.1     rstudioapi_0.13  whisker_0.4      jquerylib_0.1.4 
+[21] Matrix_1.3-4     reticulate_1.20  rmarkdown_2.10   labeling_0.4.2  
+[25] munsell_0.5.0    broom_0.7.9      compiler_4.1.1   httpuv_1.6.2    
+[29] modelr_0.1.8     xfun_0.25        pkgconfig_2.0.3  htmltools_0.5.2 
+[33] tidyselect_1.1.1 fansi_0.5.0      withr_2.4.2      crayon_1.4.1    
+[37] tzdb_0.1.2       dbplyr_2.1.1     later_1.3.0      grid_4.1.1      
+[41] jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.0  DBI_1.1.1       
+[45] git2r_0.28.0     magrittr_2.0.1   scales_1.1.1     cli_3.0.1       
+[49] stringi_1.7.4    farver_2.1.0     fs_1.5.0         promises_1.2.0.1
+[53] xml2_1.3.2       bslib_0.3.0      ellipsis_0.3.2   generics_0.1.0  
+[57] vctrs_0.3.8      tools_4.1.1      glue_1.4.2       hms_1.1.0       
+[61] fastmap_1.1.0    yaml_2.2.1       colorspace_2.0-2 rvest_1.0.1     
+[65] knitr_1.33       haven_2.4.3      sass_0.4.0      </code></pre>
 </div>
 </div>
 </div>
@@ -1142,6 +1356,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

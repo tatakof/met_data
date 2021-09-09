@@ -7,4 +7,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+Project to retrieve meteorological data from the European Centre for Medium-Range Weather Forecasts (ECMWF)

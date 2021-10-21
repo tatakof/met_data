@@ -205,10 +205,24 @@ metdata_2017_weekly <- metdata_2017_daily %>%
     'tp_wmean' = mean(tp_dmean), 
     'd2m_wmean' = mean(d2m_dmean)
   ) %>% 
-  ungroup()
+  ungroup() %>% 
+  na.omit()
 
 
+# useful objects for plots 
 
+plot_labeling_data <- metdata_2017_weekly %>%
+  # select variables of interest for plotting 
+  select(station, lat, lon, Date, week, t2m_wmean, tp_wmean, d2m_wmean) %>%
+  # store data only from each sunday of each week 
+  group_by(station, week) %>%
+  slice_head() 
+
+# pull a dates vector from a location (does't matter which location)
+plot_dates <- plot_labeling_data %>% 
+  filter(station == "GENERAL_PICO") %>% 
+  pull(Date) %>% 
+  as.character()
 
 ```
 
@@ -224,14 +238,30 @@ metdata_2017_weekly <- metdata_2017_daily %>%
 library(ggplot2)
 
 (
-plot_temp <- metdata_2017_weekly %>%
+plot_t2m_ecmwf <- metdata_2017_weekly %>%
   ggplot() +
-  geom_line(aes(x = week, y = t2m_wmean, color = station)) +
-  labs(y = "ECMWF 2m Temperature")
+  geom_line(
+    aes(
+      x = week, 
+      y = t2m_wmean, 
+      color = station
+    )
+  ) +
+  labs(
+    y = "ECMWF weekly mean 2m-Temperature",
+    caption = "Dates on X axis correspond to the starting day of each week"
+  ) +
+  scale_x_continuous(
+    breaks = seq(1, 17, by = 2),
+    label = function(x) {return(paste("Week ", x, ", (", plot_dates[x], ")"))}
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, 
+      vjust = 1, 
+      hjust = 1)
+  )  
 )
-
-
-
 
 
 ```
@@ -242,12 +272,35 @@ plot_temp <- metdata_2017_weekly %>%
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 
+
 (
-plot_temp <- metdata_2017_weekly %>%
+plot_d2m_ecmwf <- metdata_2017_weekly %>%
   ggplot() +
-  geom_line(aes(x = week, y = d2m_wmean, color = station)) +
-  labs(y = "ECMWF 2m Dewpoint")
+  geom_line(
+    aes(
+      x = week, 
+      y = d2m_wmean, 
+      color = station
+    )
+  ) +
+  labs(
+    y = "ECMWF weekly mean 2m-Dewpoint",
+    caption = "Dates on X axis correspond to the starting day of each week"
+  ) +
+  scale_x_continuous(
+    breaks = seq(1, 17, by = 2),
+    label = function(x) {return(paste("Week ", x, ", (", plot_dates[x], ")"))}
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, 
+      vjust = 1, 
+      hjust = 1)
+  )  
 )
+
+
+
 ```
 
 <br>
@@ -257,10 +310,31 @@ plot_temp <- metdata_2017_weekly %>%
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 (
-plot_temp <- metdata_2017_weekly %>%
+plot_prec_ecmwf <- metdata_2017_weekly %>%
   ggplot() +
-  geom_line(aes(x = week, y = tp_wmean, color = station)) +
-  labs(y = "ECMWF Total Precipitation")
+  geom_line(
+    aes(
+      x = week, 
+      y = tp_wmean, 
+      color = station
+    )
+  ) +
+  labs(
+    y = "ECMWF weekly mean Total Precipitation",
+    caption = "Dates on X axis correspond to the starting day of each week"
+  ) +
+  scale_x_continuous(
+    breaks = seq(1, 17, by = 2),
+    label = function(x) {return(paste("Week ", x, ", (", plot_dates[x], ")"))}
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, 
+      vjust = 1, 
+      hjust = 1)
+  )  
 )
+
+
 
 ```

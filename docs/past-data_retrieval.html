@@ -15,8 +15,8 @@
 
 <title>ECMWF</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -405,7 +405,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-08
+<strong>Last updated:</strong> 2021-10-21
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -496,16 +496,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree6c5a096454d3625ce6cebd7e8c82c0161b2028c4targetblank6c5a096a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/6c5a096454d3625ce6cebd7e8c82c0161b2028c4" target="_blank">6c5a096</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatreef89a917ddaf020ddc521e969d75728670e1bfbe2targetblankf89a917a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/franfram/met_data/tree/f89a917ddaf020ddc521e969d75728670e1bfbe2" target="_blank">f89a917</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatree6c5a096454d3625ce6cebd7e8c82c0161b2028c4targetblank6c5a096a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfranframmetdatatreef89a917ddaf020ddc521e969d75728670e1bfbe2targetblankf89a917a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/6c5a096454d3625ce6cebd7e8c82c0161b2028c4" target="_blank">6c5a096</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/franfram/met_data/tree/f89a917ddaf020ddc521e969d75728670e1bfbe2" target="_blank">f89a917</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -516,6 +516,8 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
+    Untracked:  .binder/
+    Untracked:  DESCRIPTION
     Untracked:  install.R
     Untracked:  runtime.txt
 
@@ -556,6 +558,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/franfram/met_data/blob/f89a917ddaf020ddc521e969d75728670e1bfbe2/analysis/past-data_retrieval.Rmd" target="_blank">f89a917</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Improve plots, add dates for comparison with NOAA data
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/franfram/met_data/d48b7c0a889c74e64c118e1a7c14c23323317bc6/docs/past-data_retrieval.html" target="_blank">d48b7c0</a>
+</td>
+<td>
+franfram
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1015,7 +1051,24 @@ metdata_2017_weekly &lt;- metdata_2017_daily %&gt;%
     &#39;tp_wmean&#39; = mean(tp_dmean), 
     &#39;d2m_wmean&#39; = mean(d2m_dmean)
   ) %&gt;% 
-  ungroup()</code></pre>
+  ungroup() %&gt;% 
+  na.omit()
+
+
+# useful objects for plots 
+
+plot_labeling_data &lt;- metdata_2017_weekly %&gt;%
+  # select variables of interest for plotting 
+  select(station, lat, lon, Date, week, t2m_wmean, tp_wmean, d2m_wmean) %&gt;%
+  # store data only from each sunday of each week 
+  group_by(station, week) %&gt;%
+  slice_head() 
+
+# pull a dates vector from a location (does&#39;t matter which location)
+plot_dates &lt;- plot_labeling_data %&gt;% 
+  filter(station == &quot;GENERAL_PICO&quot;) %&gt;% 
+  pull(Date) %&gt;% 
+  as.character()</code></pre>
 <p><br></p>
 </div>
 <div id="plot" class="section level3">
@@ -1026,10 +1079,29 @@ metdata_2017_weekly &lt;- metdata_2017_daily %&gt;%
 <pre class="r"><code>library(ggplot2)
 
 (
-plot_temp &lt;- metdata_2017_weekly %&gt;%
+plot_t2m_ecmwf &lt;- metdata_2017_weekly %&gt;%
   ggplot() +
-  geom_line(aes(x = week, y = t2m_wmean, color = station)) +
-  labs(y = &quot;ECMWF 2m Temperature&quot;)
+  geom_line(
+    aes(
+      x = week, 
+      y = t2m_wmean, 
+      color = station
+    )
+  ) +
+  labs(
+    y = &quot;ECMWF weekly mean 2m-Temperature&quot;,
+    caption = &quot;Dates on X axis correspond to the starting day of each week&quot;
+  ) +
+  scale_x_continuous(
+    breaks = seq(1, 17, by = 2),
+    label = function(x) {return(paste(&quot;Week &quot;, x, &quot;, (&quot;, plot_dates[x], &quot;)&quot;))}
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, 
+      vjust = 1, 
+      hjust = 1)
+  )  
 )</code></pre>
 <p><img src="figure/past-data_retrieval.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -1085,10 +1157,29 @@ franfram
 <div id="dewpoint" class="section level4">
 <h4>Dewpoint</h4>
 <pre class="r"><code>(
-plot_temp &lt;- metdata_2017_weekly %&gt;%
+plot_d2m_ecmwf &lt;- metdata_2017_weekly %&gt;%
   ggplot() +
-  geom_line(aes(x = week, y = d2m_wmean, color = station)) +
-  labs(y = &quot;ECMWF 2m Dewpoint&quot;)
+  geom_line(
+    aes(
+      x = week, 
+      y = d2m_wmean, 
+      color = station
+    )
+  ) +
+  labs(
+    y = &quot;ECMWF weekly mean 2m-Dewpoint&quot;,
+    caption = &quot;Dates on X axis correspond to the starting day of each week&quot;
+  ) +
+  scale_x_continuous(
+    breaks = seq(1, 17, by = 2),
+    label = function(x) {return(paste(&quot;Week &quot;, x, &quot;, (&quot;, plot_dates[x], &quot;)&quot;))}
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, 
+      vjust = 1, 
+      hjust = 1)
+  )  
 )</code></pre>
 <p><img src="figure/past-data_retrieval.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -1144,10 +1235,29 @@ franfram
 <div id="total-precipitation" class="section level4">
 <h4>Total precipitation</h4>
 <pre class="r"><code>(
-plot_temp &lt;- metdata_2017_weekly %&gt;%
+plot_prec_ecmwf &lt;- metdata_2017_weekly %&gt;%
   ggplot() +
-  geom_line(aes(x = week, y = tp_wmean, color = station)) +
-  labs(y = &quot;ECMWF Total Precipitation&quot;)
+  geom_line(
+    aes(
+      x = week, 
+      y = tp_wmean, 
+      color = station
+    )
+  ) +
+  labs(
+    y = &quot;ECMWF weekly mean Total Precipitation&quot;,
+    caption = &quot;Dates on X axis correspond to the starting day of each week&quot;
+  ) +
+  scale_x_continuous(
+    breaks = seq(1, 17, by = 2),
+    label = function(x) {return(paste(&quot;Week &quot;, x, &quot;, (&quot;, plot_dates[x], &quot;)&quot;))}
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, 
+      vjust = 1, 
+      hjust = 1)
+  )  
 )</code></pre>
 <p><img src="figure/past-data_retrieval.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -1220,23 +1330,29 @@ other attached packages:
  [9] tibble_3.1.4     ggplot2_3.3.5    tidyverse_1.3.1  workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       lattice_0.20-44  png_0.1-7        assertthat_0.2.1
- [5] rprojroot_2.0.2  digest_0.6.27    utf8_1.2.2       R6_2.5.1        
- [9] cellranger_1.1.0 backports_1.2.1  reprex_2.0.1     evaluate_0.14   
-[13] highr_0.9        httr_1.4.2       pillar_1.6.2     rlang_0.4.11    
-[17] readxl_1.3.1     rstudioapi_0.13  whisker_0.4      jquerylib_0.1.4 
-[21] Matrix_1.3-4     reticulate_1.20  rmarkdown_2.10   labeling_0.4.2  
-[25] munsell_0.5.0    broom_0.7.9      compiler_4.1.1   httpuv_1.6.2    
-[29] modelr_0.1.8     xfun_0.25        pkgconfig_2.0.3  htmltools_0.5.2 
-[33] tidyselect_1.1.1 fansi_0.5.0      withr_2.4.2      crayon_1.4.1    
-[37] tzdb_0.1.2       dbplyr_2.1.1     later_1.3.0      grid_4.1.1      
-[41] jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.0  DBI_1.1.1       
-[45] git2r_0.28.0     magrittr_2.0.1   scales_1.1.1     cli_3.0.1       
-[49] stringi_1.7.4    farver_2.1.0     fs_1.5.0         promises_1.2.0.1
-[53] xml2_1.3.2       bslib_0.3.0      ellipsis_0.3.2   generics_0.1.0  
-[57] vctrs_0.3.8      tools_4.1.1      glue_1.4.2       hms_1.1.0       
-[61] fastmap_1.1.0    yaml_2.2.1       colorspace_2.0-2 rvest_1.0.1     
-[65] knitr_1.33       haven_2.4.3      sass_0.4.0      </code></pre>
+ [1] Rcpp_1.0.7           lattice_0.20-44      png_0.1-7           
+ [4] assertthat_0.2.1     rprojroot_2.0.2      digest_0.6.27       
+ [7] utf8_1.2.2           R6_2.5.1             cellranger_1.1.0    
+[10] backports_1.2.1      reprex_2.0.1         evaluate_0.14       
+[13] highr_0.9            httr_1.4.2           pillar_1.6.2        
+[16] rlang_0.4.11         readxl_1.3.1         rstudioapi_0.13     
+[19] whisker_0.4          jquerylib_0.1.4      Matrix_1.3-4        
+[22] reticulate_1.20-9002 rmarkdown_2.11       labeling_0.4.2      
+[25] munsell_0.5.0        broom_0.7.9          compiler_4.1.1      
+[28] httpuv_1.6.2         modelr_0.1.8         xfun_0.25           
+[31] pkgconfig_2.0.3      htmltools_0.5.2      tidyselect_1.1.1    
+[34] fansi_0.5.0          withr_2.4.2          crayon_1.4.1        
+[37] tzdb_0.1.2           dbplyr_2.1.1         later_1.3.0         
+[40] grid_4.1.1           jsonlite_1.7.2       gtable_0.3.0        
+[43] lifecycle_1.0.0      DBI_1.1.1            git2r_0.28.0        
+[46] magrittr_2.0.1       scales_1.1.1         cli_3.0.1           
+[49] stringi_1.7.4        farver_2.1.0         fs_1.5.0            
+[52] promises_1.2.0.1     xml2_1.3.2           bslib_0.3.0         
+[55] ellipsis_0.3.2       generics_0.1.0       vctrs_0.3.8         
+[58] tools_4.1.1          glue_1.4.2           hms_1.1.0           
+[61] fastmap_1.1.0        yaml_2.2.1           colorspace_2.0-2    
+[64] rvest_1.0.1          knitr_1.33           haven_2.4.3         
+[67] sass_0.4.0          </code></pre>
 </div>
 </div>
 </div>
